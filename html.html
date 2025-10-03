@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acharya Debashish - Professional Vedic Astrologer Since 1981</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            cursor: pointer;
+            animation: pulse 2s infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #20ba5a;
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Online Consultation Banner */
+        .online-consultation {
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .online-consultation.show {
+            transform: translateY(0);
+        }
+
+        .consultation-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .consultation-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-btn {
+            background: #25d366;
+            color: white;
+        }
+
+        .zoom-btn {
+            background: #2d8cff;
+            color: white;
+        }
+
+        .phone-btn {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .consultation-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #d4af37 100%);
+            color: #8b4513;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: #8b4513;
+        }
+
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #8b4513;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            background: rgba(139, 69, 19, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"><rect fill="%23191970" width="1000" height="600"/><g fill="%23d4af37" opacity="0.2"><circle cx="200" cy="150" r="3"/><circle cx="400" cy="100" r="2"/><circle cx="600" cy="200" r="4"/><circle cx="800" cy="120" r="2.5"/><circle cx="150" cy="300" r="3.5"/><circle cx="350" cy="250" r="2.8"/><circle cx="550" cy="350" r="4.2"/><circle cx="750" cy="280" r="3"/><circle cx="900" cy="400" r="2.5"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            padding: 2rem;
+        }
+
+        .ganesh-blessing {
+            position: absolute;
+            top: 100px;
+            left: 50px;
+            text-align: center;
+            color: #ffd700;
+            background: rgba(0,0,0,0.6);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            animation: float 3s ease-in-out infinite;
+            border: 2px solid #d4af37;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+            animation: fadeInUp 1s ease;
+            color: #ff4500;
+            font-weight: bold;
+        }
+
+        .hero-content .subtitle {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #ff4500;
+            animation: fadeInUp 1s ease 0.1s both;
+            font-weight: bold;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #d4af37, #ffd700);
+            color: #8b4513;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease 0.4s both;
+            font-size: 1.1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(45deg, #d4af37, #8b4513);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .astrologer-image {
+            width: 100%;
+            height: 500px;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #d4af37, #8b4513);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .experience-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #ffd700, #d4af37);
+            color: #8b4513;
+            padding: 1rem;
+            border-radius: 50%;
+            font-weight: bold;
+            text-align: center;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Services Section */
+        .services {
+            background: linear-gradient(135deg, #fff8dc 0%, #f5deb3 100%);
+            padding: 5rem 2rem;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #d4af37, #8b4513);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #d4af37;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #8b4513;
+        }
+
+        .service-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-top: 1rem;
+        }
+
+        .book-btn {
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Online Booking Section */
+        .booking-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+
+        .time-slot {
+            background: rgba(255,255,255,0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .time-slot:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: #ffd700;
+        }
+
+        .time-slot.selected {
+            background: #ffd700;
+            color: #8b4513;
+            border-color: #d4af37;
+        }
+
+        /* Payment Options */
+        .payment-options {
+            background: #f8f9fa;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem auto;
+            max-width: 800px;
+        }
+
+        .payment-method {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .payment-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #d4af37 0%, #8b4513 100%);
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.9);
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #ffd700, #d4af37);
+            color: #8b4513;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Signboard Section */
+        .signboard-section {
+            padding: 4rem 2rem;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .signboard-image {
+            max-width: 100%;
+            height: 400px;
+            background: linear-gradient(45deg, #ffd700, #d4af37);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            color: #8b4513;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.5rem;
+            }
+
+            .ganesh-blessing {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-bottom: 2rem;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .consultation-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Online Consultation Banner -->
+    <div class="online-consultation" id="consultationBanner">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h3>🌟 Online Consultations Available Worldwide! 🌟</h3>
+            <p>Get personalized astrology reading from home</p>
+            <div class="consultation-buttons">
+                <a href="https://wa.me/919235652181?text=Hi%20Acharya%20Debashish,%20I%20want%20online%20consultation" class="consultation-btn whatsapp-btn">📱 WhatsApp</a>
+                <a href="#booking" class="consultation-btn zoom-btn">💻 Video Call</a>
+                <a href="tel:+919235652181" class="consultation-btn phone-btn">📞 Phone</a>
+            </div>
+        </div>
+        <button onclick="closeConsultationBanner()" style="position: absolute; top: 10px; right: 20px; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer;">×</button>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/919235652181?text=Hi%20Acharya%20Debashish,%20I%20need%20astrological%20guidance" class="whatsapp-float" target="_blank">
+        💬
+    </a>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <span class="logo-icon">🕉️</span>
+                Acharya Debashish
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#booking">Book Online</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="ganesh-blessing">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🙏</div>
+            <div style="font-size: 2rem; color: #ff6347; margin-bottom: 1rem;">ॐ गं गणपतये नमः</div>
+            <div style="font-size: 1rem; line-height: 1.4; max-width: 250px;">
+                <strong>वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।<br>
+                निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥</strong>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1>आचार्य देबाशीष</h1>
+            <div class="subtitle">ACHARYA DEBASHISH</div>
+            <p><strong>Professional Vedic Astrologer since 1981 • 43+ years of dedicated service</strong><br>
+            Helping people, companies & organizations with horoscope analysis, predictions, remedies through mantras, yantras, worship patterns, pujas and various corrective measures • Gemstones therapy and spiritual guidance</p>
+            <a href="#booking" class="cta-button">📱 Book Online Consultation</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>About Acharya Debashish</h2>
+            <p><strong>Namaste! I am Acharya Debashish Mazumdar</strong>, a professional Vedic astrologer with over <strong>43+ years of dedicated service since 1981</strong>. My journey combines deep knowledge, extensive experience, tapasya, meditation, intuition and divine grace.</p>
+            
+            <p>I specialize in <strong>Vedic Astrology</strong> and provide comprehensive services including horoscope analysis, accurate predictions, and effective remedies through mantras, yantras, worship patterns, pujas, and various upayas (corrective remedies).</p>
+            
+            <p>Located in <strong>Indira Nagar, Lucknow</strong>, I serve individuals, companies, and organizations worldwide through online consultations, always working for betterment and well-being.</p>
+
+            <p><strong>With Lord Ganesha's blessings and years of spiritual practice, I guide people toward prosperity, peace, and spiritual growth.</strong></p>
+        </div>
+        <div class="astrologer-image">
+            <div class="experience-badge">43+<br>Years<br>Experience</div>
+            <div>
+                <div style="font-size: 4rem; margin-bottom: 1rem;">🧙‍♂️</div>
+                <strong>Your Professional Photo<br>Will Be Here</strong><br>
+                <small>(Acharya Debashish Mazumdar)</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="services-container">
+            <h2>🔯 Astrological Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📜</div>
+                    <h3>Horoscope Analysis</h3>
+                    <p>Complete Janam Kundali analysis revealing personality, strengths, challenges, and life purpose according to Vedic astrology.</p>
+                    <div class="service-price">$115</div>
+                    <a href="https://wa.me/919235652181?text=Hi%20Acharya%20Debashish,%20I%20want%20Horoscope%20Analysis%20service" class="book-btn">📱 Book Now</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🔮</div>
+                    <h3>Predictions & Forecasting</h3>
+                    <p>Accurate predictions for career, marriage, health, finances, and life events based on planetary positions.</p>
+                    <div class="service-price">$165</div>
+                    <a href="https://wa.me/919235652181?text=Hi%20Acharya%20Debashish,%20I%20want%20Predictions%20and%20Forecasting" class="book-btn">📱 Book Now</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🕉️</div>
+                    <h3>Mantras & Yantras</h3>
+                    <p>Powerful mantras and sacred yantras prescribed to remove obstacles and enhance positive planetary influences.</p>
+                    <div class="service-price">$140</div>
+                    <a href="https://wa.me/919235652181?text=Hi%20Acharya%20Debashish,%20I%20need%20Mantras%20and%20Yantras" class="book-btn">📱 Book Now</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🛕</div>
+                    <h3>Puja & Worship Guidance</h3>
+                    <p>Personalized worship patterns and puja recommendations to strengthen beneficial planets.</p>
+                    <div class="service-price">$90</div>
+                    <a href="https://wa.me/919235652181?text=Hi%20Acharya%20Debashish,%20I%20need%20Puja%20guidance" class="book-btn">📱 Book Now</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💎</div>
+                    <h3>Gemstones Therapy</h3>
+                    <p>Scientific gemstone recommendations based on planetary positions for luck, health, and prosperity.</p>
+                    <div class="service-price">$65</div>
+                    <a href="https://wa.me/919235652181?text=Hi%20Acharya%20Debashish,%20I%20need%20Gemstone%20consultation" class="book-btn">📱 Book Now</a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⚖️</div>
+                    <h3>Corrective Remedies (Upayas)</h3>
+                    <p>Various corrective measures to overcome planetary doshas and improve life situations.</p>
+                    <div class="service-price">$190</div>
+                    <a href="https://wa.me/919235652181?text=Hi%20Acharya%20Debashish,%20I%20need%20corrective%20remedies" class="book-btn">📱 Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Booking Section -->
+    <section id="booking" class="booking-section">
+        <h2>📅 Book Your Online Consultation</h2>
+        <p>Choose your preferred time slot for personalized astrological guidance</p>
+        
+        <div class="time-slots">
+            <div class="time-slot" onclick="selectTimeSlot(this)">9:00 AM</div>
+            <div class="time-slot" onclick="selectTimeSlot(this)">11:00 AM</div>
+            <div class="time-slot" onclick="selectTimeSlot(this)">2:00 PM</div>
+            <div class="time-slot" onclick="selectTimeSlot(this)">4:00 PM</div>
+            <div class="time-slot" onclick="selectTimeSlot(this)">6:00 PM</div>
+            <div class="time-slot" onclick="selectTimeSlot(this)">8:00 PM</div>
+        </div>
+        
+        <button onclick="bookAppointment()" style="background: #ffd700; color: #8b4513; padding: 1.5rem 3rem; border: none; border-radius: 50px; font-size: 1.2rem; font-weight: bold; cursor: pointer; margin-top: 2rem;">
+            📱 Confirm Booking via WhatsApp
+        </button>
+    </section>
+
+    <!-- Payment Options -->
+    <section class="payment-options">
+        <h2 style="color: #8b4513; margin-bottom: 2rem;">💳 Secure Payment Methods</h2>
+        <p style="color: #666; font-size: 1.1rem;">Multiple payment options available for your convenience</p>
+        
+        <div class="payment-methods">
+            <div class="payment-method">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">💳</div>
+                <h3>Credit/Debit Cards</h3>
+                <p>Visa, Mastercard, Rupay</p>
+            </div>
